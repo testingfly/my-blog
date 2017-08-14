@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages - TEST
+## This is a test page
 
 You can use the [editor on GitHub](https://github.com/nrosanta/nrosanta.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
 
@@ -23,9 +23,9 @@ Syntax highlighted code block
 
 **Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
+[Test Link](/useful_files/Cucumber_reporting_and_profiles.xml) and ![Image](src)
 ```
-TEST
+Test-Link [Test Link](/useful_files/Cucumber_reporting_and_profiles.xml)
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
 ### Jekyll Themes
