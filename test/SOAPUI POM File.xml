@@ -20,46 +20,7 @@
    </pluginRepositories>
 
 
-
-
-   <!--propertyName>soapui.home</propertyName>
-   <propertyValue>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</propertyValue-->
-
    <dependencies>
-   		     <!--dependency>
-               <groupId>com.smartbear</groupId>
-               <artifactId>ready-api-runners</artifactId>
-               <version>2.0.0</version>
-           </dependency-->
-           <!--dependency!>
-               <groupId>com.smartbear</groupId>
-               <artifactId>ready-api-soapui-pro</artifactId>
-               <version>2.0.0</version>
-               <exclusions>
-                   <exclusion>
-                       <groupId>activeQueryBuilder</groupId>
-                       <artifactId>activeQueryBuilder</artifactId>
-                   </exclusion>
-               </exclusions>
-           </dependency-->
-           <!--dependency>
-               <groupId>com.smartbear</groupId>
-               <artifactId>ready-api-soapui</artifactId>
-               <version>2.0.0</version>
-             <exclusions>
-                   <exclusion>
-                       <groupId>com.jgoodies</groupId>
-                       <artifactId>forms</artifactId>
-                   </exclusion>
-               </exclusions>
-           </dependency-->
-   		<!--dependency>
-   			<groupId>junit</groupId>
-   			<artifactId>junit</artifactId>
-   			<version>3.8.1</version>
-   			<scope>runtime</scope>
-   		</dependency-->
-
 
 
       <!-- https://mvnrepository.com/artifact/xalan/serializer -->
@@ -68,15 +29,6 @@
           <artifactId>serializer</artifactId>
           <version>2.7.1</version>
       </dependency>
-
-
-
-
-
-
-
-
-
 
    	</dependencies>
 
@@ -93,16 +45,6 @@
             <!--Specifies your Ready! API version. Maven will use the appropriate plugin version.-->
             <!--IMPORTANT: Must be the same as your Ready! API version.-->
             <version>2.0.0</version>
-
-            <!--Add a JDBC driver dependency if your tests use JDBC.-->
-            <!--Maven imports and installs the driver automatically.-->
-            <!--dependencies>
-               <dependency>
-                  <groupId>mysql</groupId>
-                  <artifactId>mysql-connector-java</artifactId>
-                  <version>5.1.6</version>
-               </dependency>
-            </dependencies-->
 
             <executions>
                <execution>
@@ -125,7 +67,7 @@
 
                      <!--Required. Specifies the path to the project to execute.-->
                      <!--For composite projects, specify the folder that contains the project..-->
-                     <projectFile>${basedir}/Error-Handling-Sandbox-Changes-Fx-v2.xml</projectFile>
+                     <projectFile>${basedir}/SOAPUI_PROJECT_NAME.xml</projectFile>
                      <outputFolder>${basedir}/target/soapui-reports</outputFolder>
 
 
@@ -300,10 +242,7 @@
 
 
    </build>
-
-   <!--Add Maven SureFire Plugin to generate JUnit XML reports.-->
    <reporting>
-     <!--outputDirectory>${basedir}/report</outputDirectory-->
 
       <plugins>
         <plugin>
@@ -323,21 +262,6 @@
             <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
             <configuration>
 
-                <!--properties>
-                  <property>
-                    <name>soapui.home</name>
-                    <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
-                  </property>
-                </properties-->
-
-                <!--systemProperties>
-                  <property>
-                    <name>soapui.home</name>
-                    <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
-                  </property>
-                </systemProperties-->
-
-
               <argLine>-Dsoapui.home=/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</argLine>
 
               <outputName>FX Sandbox Test Result</outputName>
@@ -348,24 +272,8 @@
                 <propertyName>Environment</propertyName>
                 <propertyName>testSuite</propertyName>
                 <propertyName>testCase</propertyName>
-                <!--propertyName>soapui.home</propertyName-->
-
-                <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
-
-
-
-                <!--propertyName>soapui.home</propertyName>
-                <propertyValue>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</propertyValue-->
 
               </systemPropertyVariables>
-
-
-              <!--systemProperties>
-                 <systemProperty>
-                   <key>soapui.home</key>
-                   <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
-                 </systemProperty>
-               </systemProperties-->
 
 
             </configuration>
@@ -401,17 +309,6 @@
             <artifactId>maven-project-info-reports-plugin</artifactId>
             <version>2.7</version>
         </plugin>
-
-
-
-
-
-        <!--><-->
-
-
-
-
-
 
 
       </plugins>
