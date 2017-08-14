@@ -1,0 +1,188 @@
+---
+layout: default
+description: Methods for repairing or editing GRUB - by D Quinton
+title: Grub
+id: help
+---
+
+<div class="onpage">
+  <ul>
+    <li>
+        On this page &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <a href="#">TOP</a>
+             <ul>
+                <li><a href="#1">Super Grub2</a></li>
+                <li><a href="#2">Boot Repair Disk</a></li>
+                <li><a href="#3">Chroot </a></li>
+                <li><a href="#4">Rescue Mode </a></li>
+                <li><a href="#5">custom entry </a></li>
+              </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="pagemenu">
+<table cellpadding="5"><tr><td>
+   <a href="#1">Super Grub2</a><br>
+   <a href="#2">Boot Repair Disk</a><br>
+   <a href="#3">Chroot </a><br>
+   <a href="#4">Rescue Mode </a><br>
+   <a href="#5">custom entry</a><br>
+</td></tr></table></div>
+
+<div class="parent"><a href="../helps.html">Helps</a> ></div>
+
+<div class="cont">
+
+GRUB is the Linux boot manager. When a new system is installed, GRUB needs to be installed to the harddisk and it has to updated with the system type and partition so that it can boot it correctly. If you add another OS to another partition, GRUB needs updating again so that it can list and boot that new OS. 
+
+<br><br>
+
+<b>Some options for installing/updating GRUB</b>
+
+<br><br><br><br>
+
+<h2 id="1" class="tag">1 ....Boot a trouble system with Super Grub2</h2>
+
+<a href="http://www.supergrubdisk.org/" rel="noreferrer">http://www.supergrubdisk.org/</a>
+<br><br>
+This might work if you hava an installed system that can't boot.  Put Super Grub2 on a USB stick and boot it and it will scan the box for any installed system - just select one to boot it.
+<br><br>
+With the system up you can install GRUB and update it easily. As root,
+
+<form><textarea name="T" id="cmd" rows="3" cols="30">
+apt-get install grub
+grub-install /dev/sda
+update-grub</textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+<br>
+where "sda" is the root of the hard disk you want to install GRUB on
+<br><br>
+My no.2 was a gui program called Grub customizer... but as I never use it any more, and it was dodgy with Debian (better suited for Ubuntu), I will leave it out as unnecessary bloatware...
+<br><br><br><br>
+
+<h2 id="2" class="tag">2 ....Boot Repair Disk</h2> 
+
+<a href="http://sourceforge.net/projects/boot-repair-cd/" rel="noreferrer">http://sourceforge.net/projects/boot-repair-cd/</a>
+<br><br>
+Run this Live CD and the Recovery app automatically searches for OS's present. Open the Advanced options to choose a location to install GRUB (set it to the root of your main harddisk, e.g. sda) and any other particulars.
+<br><br>
+This is a more friendly GUI app for those unsure of a terminal.
+<br><br>
+You can install Boot repair to your system as well, but to detect and repair GRUB it must be run during a live session, and the version installed is arch specific, so 32bit will not repair GRUB on a 64bit system - as essentially it's chrooting.
+<br>
+
+<div class="numb"><ol><li> 
+
+1. get packages boot-repair and boot-sav - download from <a href="https://launchpad.net/~yannubuntu/+archive/ubuntu/boot-repair/+sourcepub/3748536/+listing-archive-extra">https://launchpad.net/</a> or <a href="https://launchpad.net/~yannubuntu/+archive/ubuntu/boot-repair/+packages">https://launchpad.net/...</a> or search for more recent ones.</li>
+
+
+<li> 2. install glad2script - download and install the .deb package from <a href="https://launchpad.net/glade2script">https://launchpad.net/glade2script</a></li>
+<form><textarea name="T" id="install" rows="1" cols="30">
+sudo dpkg -i glad <Tab> </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+<li> 3. get and install parted <a href="https://packages.debian.org/wheezy/parted">https://packages.debian.org/...</a></li>
+
+<li> 4. install the boot-sav package with dpkg</li>
+
+<li> 5. finally install boot-repair package with dpkg</li>
+</ol></div>
+<br><br><br><br>
+
+<h2 id="3" class="tag">3 ...Chroot from a Live environment </h2>
+
+You can chroot (change root) using a Live CD into the system that needs Grub installed...
+
+<form><textarea name="T" id="cmd" rows="8" cols="50">
+mount /dev/sda2 /mnt
+mount -t proc proc /mnt/proc
+mount -o bind /dev /mnt/dev
+mount -t sysfs /sys /mnt/sys
+chroot /mnt
+grub-install /dev/sda
+update-grub
+exit </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+<br>
+and unmount the system with
+<form><textarea name="T" id="cmd" rows="2" cols="30">
+umount /mnt/{proc,sys,dev}
+umount /mnt </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+
+see my <a href="03-chrooting.html">chroot page</a> for more detail.
+<br><br><br><br>
+
+
+<h2 id="4" class="tag">5 ....Using Rescue Mode of a net install CD </h2>
+
+<a href="http://www.debian.org/releases/stable/i386/ch08s07.html.en" rel="noreferrer">http://www.debian.org/...</a>
+<br><br>
+<div class="numb"><ol><li> 
+type "rescue" at boot prompt ? or select Advanced Graphical Rescue Mode</li>
+
+<li> when it arrives at rescue mode, select the mount point for the OS partition e.g. sda5</li>
+
+<li> test the internet connection with </li>
+<form><textarea name="T" id="cmd" rows="1" cols="30">
+ping debian.org </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+<li> edit /etc/apt/sources.list if necessary, then install Grub</li>
+
+<form><textarea name="T" id="cmd" rows="3" cols="50">
+ping debian.org apt-get update
+apt-get install grub
+grub-install /dev/sda </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+<li> reboot</li>
+</ol></div>
+<br>
+
+<br>
+
+
+<h2 id="5" class="tag">6 ....Using a custom GRUB entry</h2>
+
+This is a last resort if other methods don't recognise the intalled systems.
+<br>
+<a href="https://wiki.archlinux.org/index.php/GRUB#Automatically_generating_using_.2Fetc.2Fgrub.d.2F40_custom_and_grub-mkconfig" rel="noreferrer">https://wiki.archlinux.org/</a>
+
+<div class="bullet"><ul><li> </li>
+
+edit the file /etc/grub.d/40_custom with an entry for the OS to be added (see examples on the Arch Wiki page)</li>
+
+<li>then run: `sudo update-grub`<br>
+
+- OS prober will look for the OS in the custom entries file and add it to GRUB</li>
+</ul></div>
+
+
+<br><br>
+Read up here<br>
+<a href="http://wiki.debian.org/GrubRecover" rel="noreferrer">http://wiki.debian.org/GrubRecover</a><br>
+<a href="http://www.av8n.com/computer/htm/grub-reinstall.htm" rel="noreferrer">http://www.av8n.com/</a><br>
+<a href="http://giantdorks.org/alain/easy-enough-recovery-from-debian-testing-installers-failure-to-install-grub-during-setup/" rel="noreferrer">easy-enough-recovery-from-debian-testing-installers-failure-to-install-grub-during-setup/</a><br>
+
+<br><br><br><br>
+<h3>Removing a non-present OS from the GRUB menu</h3>
+from a booted OS run: `sudo update-grub`
+<br><br>
+
+<br><br>
+There are ways to set how the different systems on a box appear on the Grub menu.. see...
+<br><br>
+<a href="http://www.dedoimedo.com/computers/grub-2.html">http://www.dedoimedo.com...</a><br>
+<a href="https://help.ubuntu.com/community/Grub2">https://help.ubuntu.com/...</a>
+
+<br><br><br><br><br>
+</div>

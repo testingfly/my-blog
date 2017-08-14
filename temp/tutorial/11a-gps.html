@@ -1,0 +1,316 @@
+---
+layout: default
+description: Geo data collating with Viking and map-making with QGIS - by D Quinton
+title: Geo data
+id: tutor
+---
+
+<div class="onpage">
+  <ul>
+    <li>
+        On this page &nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; <a href="#">TOP</a>
+             <ul>
+                <li><a href="#1">Viking</a></li>
+                <li><a href="#2">QGIS  </a></li>
+                <li><a href="#3">Waypoint labels  </a></li>
+                <li><a href="#3a">SVG symbols  </a></li>
+                <li><a href="#4">Calculate area  </a></li>
+                <li><a href="#5">Printing  </a></li>
+                <li><a href="#6">Background maps  </a></li>
+                <li><a href="#7">Contours from OpenDEM </a></li>
+                
+             </ul>
+    </li>
+  </ul>
+</div>
+
+<div class="pagemenu">
+<table cellpadding="5"><tr><td>
+   <a href="#1">Viking</a><br>
+   <a href="#2"> QGIS</a><br> 
+   <a href="#3">Waypoint labels  </a><br>
+    <a href="#3a">SVG symbols  </a><br>
+     <a href="#4">Calculate area  </a><br>
+     <a href="#5">Printing  </a><br>
+     <a href="#6">Background maps  </a><br>
+    <a href="#7">Contours from OpenDEM </a><br>
+</td></tr></table></div>
+
+<div class="parent"><a href="../tutorials.html">Tutorials</a> ></div>
+
+<div class="cont">
+
+<h2 id="1" class="tag">Viking</h2>
+<br>
+See my Step 4 page for installing Viking.
+<br><br><br>
+<h3>Using Viking to import data from a GPS unit</h3>
+Only some Garmin units can transfer through USB to viking (see the list <a href="http://www.gpsbabel.org/htmldoc-1.5.0/fmt_garmin.html">here</a> - works using a Garmin 60csx, but not a 62s)
+<br>
+<div class="bullet"><ul><li>In Viking, go through File > Acquire > From GPS</li>
+<li>/dev/ttyUSB0 will be shown as the serial port </li>
+<li>select tracks and/or waypoints and hit OK</li></ul></div>
+<br><br>
+
+For a Garmin 62s (and many others on the list) hook up the device to a USB port and read the gpx and waypoint files through a file browser, search in the Garmin/gpx and Garmin/gpx/archived dir's.
+<br><br>
+Viking supports layers including map backgrounds, colour-coding of tracks, waypoint symbols, and a lot of track and waypoints editing tools.  
+You can also geotag photos by correlating them against a track that was made at the time of shooting photos.  Your camera's clock should first be synced to the gps unit's clock, to the second - but, just incase it wasn't, there is an offset option so that if the camera's clock was different to the GPS unit's clock at the time of shooting, Viking will add/subtract so many seconds to/from the pictures' timestamps (without altering the image timestamp data), so that the pics are correlated to the right points on the track.
+<br><br>
+Also, you can write geo-coordinate data to multiple photos from any waypoint.  Photos with geo info can be imported to the map too.
+<br><br>
+What's limited is the ability to print decent maps as only the screen is sent to the print dialogue, which makes it impossible to print large scale of areas off the screen.<br>
+Other limitations are lack of drawing or labeling tools, and that waypoint titles can get crowded and overlapped.  But then, this is purely a data compiler, not so much a map production suite (aka GIS).
+
+
+<br><br><br><br>
+
+
+<h2 id="2" class="tag">QGIS</h2>
+<br>
+Once you have collated your GPS data and tidied up tracks, renumbered the points etc, its time to make it presentable, with labels that don't overlap, area shading, and quality PNG detail for printing.
+<br><br>
+What we need is Geo Info System software, and for that we have QGIS (Quantum GIS).
+ <br><br>
+See my Step 4 page for installing Qgis.
+
+<br>
+Doumentation <a href="http://docs.qgis.org/2.14/en/docs/user_manual/index.html">Qgis user manual</a>
+<br><br>
+to import geo data from e.g. Viking, first export the layers from Viking as GPX files, then in qgis,
+
+<div class="bullet"><ul><li> either open the GPS import tool, Vector menu > GPS > <b>GPS Tools</b></li>
+
+<li>or click on <b>Vector layer</b> button at left, select file, Open, select which attributes to import, OK</li></ul></div>
+
+<br><br>
+With the second way, you can import track waypoints, which will make it possible to alter the track (how?).<br>
+However, it imports without any useful name, so you need to rename the layer, with a simple right-click, or F2<br>
+You also may need to set the track size/colour in the layer properties in order for it to become visible<br>
+<br><br>
+To update the geo data in the layer after changes were made to the source gpx file by an external progam, e.g. updates were made in Viking and it was re-exported... click on the QGIS <b>Refresh button</b>!
+<br><br><br>
+
+<h3 id="3" class="tag">Waypoint labels and symbols</h3> 
+or for any other feature labels - double click on the layer, Labels > check "Label this layer.." then select "name" on drop-down list, and click OK - but you could select another field, as in altitude, etc.
+<br><br>
+The problem is that the labels may be positioned a little badly, so how would you move them around? Simply use this....
+<br><br><br>
+
+<h3>Annotation-labels</h3>  
+install the plugin "<b>EasyCustomLabeling</b>" from Plugins menu > Manage and Install<br>
+and also "<b>Memory Layer Saver</b>" plugin so that your labels will be saved in the project
+<br><br>
+
+<div class="bullet"><ul><li>select a layer</li>
+<li>click on the "Easy" button to genrate a layer for labels - then choose what label field to use -select name</li>
+<li>all waypoint labels get redrawn! (then you don't need to draw them with layer properties)</li>
+<li>click the move button, click on and drag a label</li>
+<li>click the rotate button, click on a label and adjust its angle - very useful for names of rivers</li>
+<li>when done with all changes, save the layer edits, and turn off editing (pencil icon button)</li>
+<li>remember that to edit any layer you need to select layer and click on the pencil icon edit button</li>
+</ul></div>
+
+<br><br>
+<h3>Use various icon symbols in a single layer</h3>
+<div class="bullet"><ul>
+<li>properties > Style > select Categorized</li>
+<li>click Classify</li>
+<li>select points to change</li>
+<li>right click on points > change colour</li>
+<li>or click on Change to select new symbol</li>
+</ul></div>
+<br><br>
+
+
+<h3>Filter waypoints in a layer</h3>
+
+e.g. include only/exclude wp names with 'string'
+<div class="bullet"><ul>
+<li>right click on layer > Filter, or open properties > General > Feature filter > click on Query Builder</li>
+<li>click on name field (field in layer to be filtered)</li>
+<li>enter the expression: <b>"name" LIKE '%B%' </b> to show waypoints with "B" in the name (where the %B% means containing "B" anywhere in the name)</li>
+<li>use the expression: <b>"name" NOT LIKE '%B%'</b> to exclude waypoints with "B" in the name from the layer</li>
+<li>Click on test and Sample, to check if the filter is what you want, then OK</li>
+
+</ul></div>
+
+<br><br>
+<h3 id="3a" class="tag">Use SVG symbols for waypoints</h3>
+<div class="bullet"><ul>
+<li>properties > Style > Single > click on Single symbol under "Marker"</li>
+<li>to the right, Symbol layer type, select SVG marker on the drop down menu</li>
+<li>then below select category and symbol and change size and colour</li>
+</ul></div>
+
+<br><br>
+<h3>Get more svg symbols</h3>
+<div class="bullet"><ul>
+<li>web search "svg symbol tree" etc and download - or visit pixabay.com and sign up</li>
+<li>if downloading png images, use inkscape to convert to svg: <br>
+open png, Path > Trace bitmap (check greys, remove background)</li>
+<li>drag original bitmap to the side and fill the tracing with original colours</li>
+<li>save as Plain svg, not inkscape svg which has a larger file size</li>
+<li>copy to your Qgis svg folder</li>
+<li>in Qgis Settings > Options > System, add the path to the svg folder</li>
+<li>then in layer properties you can see your new svg symbols</li>
+<br>
+<b>To enable the symbol to have borders</b>
+
+<li>open the svg file in editor</li>
+<li>for every object in the svg there will be path data...</li>
+<li>remove the "style" data at the end of the path data</li>
+<form><textarea name="T" id="file" rows="1" cols="30">
+style="fill:#000000"</textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+
+<li>add data to the beginning of the path data:</li>
+<form><textarea name="T" id="file" rows="2" cols="80">
+<path fill="param(fill) #000" stroke="param(outline) #fff" stroke-width="param(outline-width) 1"</textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+</ul></div>
+
+
+
+<br><br>
+<h3>Add Lat-Lon grid</h3>
+View menu > Decorations > Grid - set "Interval X" and "Y" to 0.05, check "annotations"<br>
+Add scale bar : View menu > Decorations > Scale<br>
+(note that these will not be present in the print window - need to make others there)
+
+<br><br><br>
+<h3 id="4" class="tag">Calculate an area</h3> 
+
+If you draw an area then you'll have a polygon layer to work with.. -> click on New shape file, check on polygon and OK, and save it.. then click on the Edit and Add Feature buttons on the toolbar, and click on the map to start drawing - right click to finish (and enter the feature no.)
+<br><br>
+To edit the polygon area, click on the Node tool button and select a node - then either move it or double click to create a new node to move (but sometimes the new node is on top, sometimes underneath!).
+<br><br>
+There is a vector tool called polygonize (which needs shapely plugin), which will make polygons where lines cross and enclose space. So if you have an area completely enclosed, i.e. a track without gaps and its two ends cross over, closing the area, then you can try using this tool to find the area enclosed.
+<form><textarea name="T" id="install" rows="1" cols="50">
+sudo apt-get install python-shapely </textarea>
+&nbsp;<input type="button" class="submitLink" value="Select all" onClick="javascript:this.form.T.focus();this.form.T.select();">
+</form>
+<br>
+<span class="blue">Processing > Toolbox > QGIS Geoalgorithms > Vector geometry tools > polygonize</span>
+<br>  <br>
+You'll need to save the resulting polygons to a file as it only creates a temp layer. 
+<br>  <br>
+You can run error checking with Vector geometry tools > <b>Check validity</b> to see where there are faults in the lines, e.g. loops or crossing. But it won't show you if there are gaps.
+<br><br>
+Or, another way is to use <b>Lines to polygons</b>, which will save the polygons to a shapefile layer:
+<br><br>
+<span class="blue">Vector menu > Geometry tools > Lines to polygons </span>
+<br><br>
+With your polygons, its easy to get an area calculation...
+
+<div class="bullet"><ul><li>select the layer</li>
+<li>open the Attribute table with toolbar button at top</li>
+<li>click on the Field calculator button</li>
+<li>Enter a new field name, i.e. "area" </li>
+<li>Select decimal number </li>
+<li>then expand "Geometry" and double click on $area</li>
+<li>you may need to add /1000 to the expression</li>
+<li>you should get a new column with area of each polygon</ul></div>
+
+<br><br><br>
+
+<h3 id="5" class="tag">Printing</h3>
+ Toolbar > New Print Composer, name it, click OK.. 
+ <br><br>
+ or,  Toolbar > Composer Manager, select a saved composer, click Show
+ <br><br>
+<div class="bullet"><ul><li>set the paper size first, A4, A3, A2, whatever size you need to print</li>
+<li>click on "Add new map" button then drag a rectangle over the tile.</li>
+<li>click "Move item content" button, and drag map to center, zoom if needed with scroll button</li>
+<li>Item properties tab to right > Main properties ..set best scale to fit what detail you need</li>
+<li>Item properties > Grid ..Click the Add + button, set X,Y intervals to 0.05 or whatever (depends on the map scale?), check "Draw coordinates" and set whether they will appear above or below the border and how far from border</li>
+<br>
+--> note that the coodinate ref system (CRS) for map raster layer is <b>EPSG:3857 - WGS 84/ Pseudo Mercator</b>, and this will rather alter how the grid is displayed in the print manager (showing ref's such as 11304000 instead of 101.550 which shows for <b>EPSG:4326 - WGS 84</b>, gpx vector layers) and the units will need changing to intervals of 3000 or so - but its easier to change the CRS back to <b>EPSG:4326</b> so that coodinate format reads better, and you won't need to keep changing the unit intervals.
+<br><br>
+<li>uncheck "background" - this will be really helpful, especially if your map layer is transparent</li>
+<li>scale bar - find the button on left toolbar - you need to play around with the "map units per bar unit" - I set it to 0.01, or 0.02, the units to meters and label "km"</li>
+<li>make a title with "Add new label" (text box) and you can give it a frame, and white background with 50% transparency in case your map is a full page of terrain detail</li>
+<li>Legend - add with the button to left, can set auto update or manual if you want to remove some layers from it</li>
+<li>to move objects around you need to select the move tool at left</li>
+</ul></div>
+
+<br><br><br>
+<h3 id="6" class="tag">Background maps</h3>
+
+1. <b>OpenLayers</b> plugin<br>
+then select a map via Web menu, Web > OpenLayers plugin > OpenStreet/Google/Bing...
+<br><br>
+To keep the map for offline use, turn off other layers and then Project > Save as Image<br>
+- then later you can add the map (provided the zoom level is still what you want) with Add Raster Layer 
+
+<br><br>
+2. <b>QuickMapServices</b> plugin is much better<br>
+it offers transparency in the layer properties dialogue, and also, when you go offline the map data stays happy in the print composer (the above plugin prints blank squares if the connection is lost!)
+<br><br>
+<span class="ht"><b>Note!</b> Unless the map fills the entire page in the print composer, when printing, your map layers will become mis-aligned with the background map, which is unaccepable and worthless.  So when you prepare to print, stretch the map to snap to the edges of the page - this is the only way to prevent mis-alignment.</span> 
+<br><br><br><br>
+
+from:
+http://opendem.info/opendem_client.html
+attribute open license:
+https://opendatacommons.org/licenses/dbcl/1.0/
+
+<h3 id="7" class="tag">Contours from OpenDEM (SRTM)</h3>
+
+This is a simple way to add nice-looking elevation data to your maps, albeit, without proper contour labels and only at 25m intervals.
+<br><br>
+Note that the data is under the <a href="https://opendatacommons.org/licenses/dbcl/1-0/">Database Contents License (DbCL) </a> which must be attributed in any public use of it.
+<br><br>
+<div class="bullet"><ul><li>browse to <a href="http://opendem.info/opendem_client.html">the openDEM tile browser</a></li>
+<li>move the map to part of world</li>
+<li>press shift and drag an area</li>
+<li>select tiles to download from pop-up list</li>
+<li>unpack and import the shp file as vector layer</li>
+</ul></div>
+<br><br>
+
+<h3>Set dark/coloured for 50m/100m intervals</h3>
+
+<div class="bullet"><ul><li>open layer properties</li>
+<li>select "Rule-based" from top-left selection (marker type)</li>
+<li>use the "+" button to add a rule:</li>
+<br>
+elevation LIKE '%25%'<br>Open Database License (ODbL) 
+<br>
+<li>set the line colour to a pale sandy brown, and leave it 0.26 thick</li>
+<li>copy and paste the rule 11 times</li>
+<li>click on the rule of each line to set the numbers to:</li>
+<br>
+elevation LIKE '%75%'<br>
+elevation LIKE '%50%'<br>
+elevation LIKE '%100%'<br>
+elevation LIKE '%200%'<br>
+.... <br>
+elevation LIKE '%900%'<br>
+<br>
+<li>right click on the 50 line and set line thickness to 0.46</li>
+<li>select all the hundreds lines and set thickness to 0.66, and a slightly darker sandy brown</li>
+
+<li>click OK to close</li>
+
+<br><br>
+Try also downloading areas from <a href="http://extract.bbbike.org/">http://extract.bbbike.org/</a>
+<br><br><br>
+
+<h3>Loading layers in other projects</h3>
+To use the layer in other projects, with its rules and line styles, you can eith save it as "Layer definition file" and load it from another project via <br>
+&nbsp;&nbsp;&nbsp;Layer menu >> Add from layer definition file 
+<br><br>
+which could be useful so that important layers are saved to an accessible location.
+<br><br>
+Or you can simply load the layer (and multiple others) into a project, via <br>
+&nbsp;&nbsp;&nbsp;Layer menu >> Embed layers and groups 
+<br><br>
+then select a qgis project file and which layers to load in.
+
+
+
+<br><br><br><br><br>
+</div>
