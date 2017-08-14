@@ -1,0 +1,424 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.gateway.error_handling</groupId>
+   <artifactId>FX-v2.0-Sandbox-Test-Report</artifactId>
+   <version>1.0</version>
+
+   <!--Add the SmartBear Ready! API plugin repository.-->
+   <!--Maven will download the plugin from the specified URL.-->
+   <pluginRepositories>
+      <pluginRepository>
+         <id>SmartBearPluginRepository</id>
+         <url>http://smartbearsoftware.com/repository/maven2</url>
+      </pluginRepository>
+      <pluginRepository>
+         <id>CustomPluginRepository</id>
+         <url>http://repo1.maven.org/maven2</url>
+      </pluginRepository>
+
+   </pluginRepositories>
+
+
+
+
+   <!--propertyName>soapui.home</propertyName>
+   <propertyValue>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</propertyValue-->
+
+   <dependencies>
+   		     <!--dependency>
+               <groupId>com.smartbear</groupId>
+               <artifactId>ready-api-runners</artifactId>
+               <version>2.0.0</version>
+           </dependency-->
+           <!--dependency!>
+               <groupId>com.smartbear</groupId>
+               <artifactId>ready-api-soapui-pro</artifactId>
+               <version>2.0.0</version>
+               <exclusions>
+                   <exclusion>
+                       <groupId>activeQueryBuilder</groupId>
+                       <artifactId>activeQueryBuilder</artifactId>
+                   </exclusion>
+               </exclusions>
+           </dependency-->
+           <!--dependency>
+               <groupId>com.smartbear</groupId>
+               <artifactId>ready-api-soapui</artifactId>
+               <version>2.0.0</version>
+             <exclusions>
+                   <exclusion>
+                       <groupId>com.jgoodies</groupId>
+                       <artifactId>forms</artifactId>
+                   </exclusion>
+               </exclusions>
+           </dependency-->
+   		<!--dependency>
+   			<groupId>junit</groupId>
+   			<artifactId>junit</artifactId>
+   			<version>3.8.1</version>
+   			<scope>runtime</scope>
+   		</dependency-->
+
+
+
+      <!-- https://mvnrepository.com/artifact/xalan/serializer -->
+      <dependency>
+          <groupId>xalan</groupId>
+          <artifactId>serializer</artifactId>
+          <version>2.7.1</version>
+      </dependency>
+
+
+
+
+
+
+
+
+
+
+   	</dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+
+            <!--Plugin groupID used to uniquely identify the project with the plugin.-->
+            <groupId>com.smartbear</groupId>
+
+            <!--Plugin artifactId used to find the plugin in the project.-->
+            <artifactId>ready-api-maven-plugin</artifactId>
+
+            <!--Specifies your Ready! API version. Maven will use the appropriate plugin version.-->
+            <!--IMPORTANT: Must be the same as your Ready! API version.-->
+            <version>2.0.0</version>
+
+            <!--Add a JDBC driver dependency if your tests use JDBC.-->
+            <!--Maven imports and installs the driver automatically.-->
+            <!--dependencies>
+               <dependency>
+                  <groupId>mysql</groupId>
+                  <artifactId>mysql-connector-java</artifactId>
+                  <version>5.1.6</version>
+               </dependency>
+            </dependencies-->
+
+            <executions>
+               <execution>
+
+                  <!--Specifies the lifecycle phase to run Ready! API tests.-->
+                  <!--We recommend using the test phase.-->
+                  <phase>test</phase>
+                  <goals>
+                     <!--Do not change. Commands Maven plugin to run a functional test.-->
+                     <goal>test</goal>
+                  </goals>
+
+                  <configuration>
+
+
+                       <!--property>
+                         <soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home>
+                       </property-->
+
+
+                     <!--Required. Specifies the path to the project to execute.-->
+                     <!--For composite projects, specify the folder that contains the project..-->
+                     <projectFile>${basedir}/Error-Handling-Sandbox-Changes-Fx-v2.xml</projectFile>
+                     <outputFolder>${basedir}/target/soapui-reports</outputFolder>
+
+
+
+
+                     <!--Required for reports. Specifies the format of the report.-->
+                     <!--Possible values: PDF, XLS, HTML, RTF, CSV, TXT and XML.-->
+                     <!--Only available in Ready! API Pro.-->
+                     <reportFormat>PDF</reportFormat>
+                     <environment>${Environment}</environment>
+
+                     <!--Required for Maven Surefire reports. Must be true.-->
+                     <!--Commands Ready! API to generate JUnit-style reports.-->
+                     <junitReport>true</junitReport>
+                     <exportAll>true</exportAll>
+
+
+                     <!--Required for Maven Surefire reports. Must be as shown.-->
+                     <!--Specifies the folder to store reports in.-->
+                     <!--reports>${basedir}/target/soapui-reports</reports-->
+
+                     <!-- ========= Additional elements ============= -->
+
+                     <!--Specifies the name of the test suite to run.-->
+                     <testSuite>${testSuite}</testSuite>
+
+                     <!--Specifies the name of the test case to run.-->
+                     <testCase>${testCase}</testCase>
+
+                     <!--Specifies the tags to use.-->
+                     <!--Only the test cases with specified tags will be run.-->
+                     <!--Use the syntax below.-->
+                     <!--tags><param>TestCase tag1, tag2</param></tags-->
+
+                     <!--Overrides service endpoints specified in the test.-->
+                     <!--endpoint></endpoint-->
+
+                     <!--Overrides the host specified in the the test.-->
+                     <!--host></host-->
+
+                     <!--Overrides user name for all requests.-->
+                     <!--username></username-->
+
+                     <!--Overrides passwords for all requests.-->
+                     <!--password></password-->
+
+                     <!--Overrides domain used for requests.-->
+                     <!--domain></domain-->
+
+                     <!--If true, commands Maven to create a printed report.-->
+                     <printReport>true</printReport>
+
+                     <!--Sets the output folder for reports.-->
+                     <!--outputFolder>${basedir}/target/export</outputFolder-->
+
+                     <!--If true, commands Maven to export all requests.-->
+                     <!--exportAll>true</exportAll-->
+
+                     <!--Specifies the SoapUI settings file to use.-->
+                     <!--settingsFile></settingsFile-->
+
+                     <!--Specifies the type of WSS password.-->
+                     <!--wssPasswordType></wssPasswordType-->
+
+                     <!--Specifies the password for an encrypted project.-->
+                     <!--project.password></project.password -->
+
+                     <!--Specifies the password for an encrypted settings file.-->
+                     <!--settingsFile.password></settingsFile.password-->
+
+                     <!--Specifies the value of a global property for the test run.-->
+                     <!--globalProperties>
+                        <value>Sample Project Property=My sample value</value>
+                     </globalProperties-->
+
+                     <!--Specifies the value of a project property for the test run.-->
+                     <!--projectProperties>
+                        <value>Some Property=My Sample Value</value>
+                     </projectProperties-->
+
+                     <!--projectProperties>
+                        <value>soapui.home=/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
+                     </projectProperties>
+
+                     <projectProperties>
+                        <projectProperty>soapui.home=${soapHome}</projectProperty>
+                     </projectProperties-->
+
+
+
+
+
+                     <!--Saves the project after the test run.-->
+                     <!--saveAfterRun></saveAfterRun-->
+
+                     <!--If true, commands Maven to continue -->
+                     <!--the test run even when an assertion triggers.-->
+                     <!--testFailIgnore>true</testFailIgnore-->
+
+                     <!--Specifies the report type. Only available in Ready! API Pro.-->
+                     <!--Click Reporting on Ready! API toolbar to find available repors.-->
+                     <reportName>Project Report</reportName>
+
+                     <!--Enables HTML coverage reports. Only available in Ready! API Pro.-->
+                     <coverage>true</coverage>
+
+                     <!--Specifies the environment to use in the test run. -->
+                     <!--Only available in Ready! API Pro.-->
+                     <!--environment></environment-->
+
+                     <!--Provides access to Ready! API properties.-->
+                     <!--readyApiProperties>
+                        <property>
+                           <! - - A folder with Ready! API executable files. - - >
+                           <! - - Used to run a local installation of Ready! API. - - >
+                           <name>soapui.home</name>
+                           <value>C:/Program Files/SmartBear/ReadyAPI-2.0.2/bin</value>
+                        </property>
+                     </readyApiProperties-->
+
+                     <!--If true, Ready! API will not send usage statistics.-->
+                     <!--optOutUsageStatistics></optOutUsageStatistics-->
+
+                     <!-- ========= /Additional elements ============= -->
+
+
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+
+         <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-pdf-plugin</artifactId>
+           <version>1.3</version>
+           <executions>
+             <execution>
+               <id>pdf</id>
+               <phase>site</phase>
+               <goals>
+                 <goal>pdf</goal>
+               </goals>
+               <configuration>
+                 <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
+                 <includeReports>false</includeReports>
+               </configuration>
+             </execution>
+           </executions>
+         </plugin>
+
+
+
+
+
+
+         <!--Add Maven Site Plugin.-->
+         <!--This plugin improves test stability and prepares test data for Maven SureFire.-->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.5</version>
+            <configuration>
+               <locales>en</locales>
+
+
+            </configuration>
+
+         </plugin>
+
+      </plugins>
+
+
+
+   </build>
+
+   <!--Add Maven SureFire Plugin to generate JUnit XML reports.-->
+   <reporting>
+     <!--outputDirectory>${basedir}/report</outputDirectory-->
+
+      <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.8</version>
+            <configuration>
+                <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+            </configuration>
+        </plugin>
+
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.20</version>
+
+            <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
+            <configuration>
+
+                <!--properties>
+                  <property>
+                    <name>soapui.home</name>
+                    <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
+                  </property>
+                </properties-->
+
+                <!--systemProperties>
+                  <property>
+                    <name>soapui.home</name>
+                    <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
+                  </property>
+                </systemProperties-->
+
+
+              <argLine>-Dsoapui.home=/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</argLine>
+
+              <outputName>FX Sandbox Test Result</outputName>
+              <reportsDirectories>
+                <reportsDirectories>${basedir}/target/soapui-reports</reportsDirectories>
+              </reportsDirectories>
+              <systemPropertyVariables>
+                <propertyName>Environment</propertyName>
+                <propertyName>testSuite</propertyName>
+                <propertyName>testCase</propertyName>
+                <!--propertyName>soapui.home</propertyName-->
+
+                <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
+
+
+
+                <!--propertyName>soapui.home</propertyName>
+                <propertyValue>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</propertyValue-->
+
+              </systemPropertyVariables>
+
+
+              <!--systemProperties>
+                 <systemProperty>
+                   <key>soapui.home</key>
+                   <value>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</value>
+                 </systemProperty>
+               </systemProperties-->
+
+
+            </configuration>
+            <reportSets>
+                <reportSet>
+                    <id>site</id>
+                    <reports>
+                        <report>report-only</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+         </plugin>
+
+        <plugin>
+          <artifactId>maven-war-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+          </configuration>
+        </plugin>
+
+
+
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <version>2.3</version>
+        </plugin>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.7</version>
+        </plugin>
+
+
+
+
+
+        <!--><-->
+
+
+
+
+
+
+
+      </plugins>
+   </reporting>
+
+
+
+
+
+</project>
