@@ -1,86 +1,96 @@
+---
+layout: default
+description: Intro to Debian install notes - by D Quinton
+title: Intro
+id: intro
+---
+
+<div class="cont" id="intro">
+  p>This is a test page and have used D Quinton's page as the template for this
+  blog.</p>
+
+  <p>Here's a quick tip to include Request and Response in SOAPUI NG -</p>
+
+  <p></p>
+
+  <p>def uRL = context.expand( '${#Project#URL}' )</p>
+
+  <p>String rawResponse = new String(context.httpResponse.getRawRequestData(),
+  "UTF-8")</p>
+
+  <p>String rawRequest = new String(context.httpResponse.getRawResponseData(),
+  "UTF-8")</p>
+
+  <p></p>
+
+  <p>log.info
+  "\n*****************************************************************************\nTEST
+  CASE NAME:
+  ${context.testCase.name}\n*****************************************************************************\n"</p>
+
+  <p>log.info("\nTest Environment EndPoint is: "+uRL+"\n")</p>
+
+  <p>if (rawRequest!=null){</p>
+
+  <p>log.info
+  "\n*****************************************************************************\nTEST
+  CASE NAME:
+  ${context.testCase.name}\n*****************************************************************************\n"</p>
+
+  <p>log.info("\n======================RAW
+  REQUEST========================\n"+rawRequest+"\n\n\n")</p>
+
+  <p>}</p>
+
+  <p>log.info
+  "\n*****************************************************************************\nTEST
+  CASE NAME:
+  ${context.testCase.name}\n*****************************************************************************\n"</p>
+
+  <p>log.info("\n======================RAW
+  RESPONSE==========================\n"+rawResponse+"\n\n\n")</p>
+
+  <p></p>
+
+  <p><br>
+  <br>
+  <span style="font-size: 20; color: #134f5c; "><b>Latest updates Aug
+  2017</b></span> <br>
+<br><br>
+
+<br><br><br>
+
+<span style="font-size: 20; color: #134f5c; "><b>Latest updates May 2017</b></span> <br>
+<br><br><br><br>
+<table cellpadding="2" align="center" style="font-size: 20; font-weight: bold; "><tr>
+<td width="160" align="center"><a href="content.html">Content</a></td>
+<td width="160" align="center"><a href="{{site.baseurl}}/netinstall.html">Netinstall</a></td>
+<td width="160" align="center"><a href="{{site.baseurl}}/configure.html">Configure</a></td>
+<td width="160" align="center"><a href="{{site.baseurl}}/tutorials.html">Tutorials</a></td>
+<td width="160" align="center"><a href="cli.html">CLI</a></td>
+<td width="160" align="center"><a href="helps.html">Helps</a></td></tr></table>
 
 
-<div class="cont" id="Agile Testing Notes">
-<p>This is a test page and have used D Quinton's page as the template for this
-blog.</p>
-
-<p>Here's a quick tip to include Request and Response in SOAPUI NG -</p>
-
-<p></p>
-
-<p>def uRL = context.expand( '${#Project#URL}' )</p>
-
-<p>String rawResponse = new String(context.httpResponse.getRawRequestData(),
-"UTF-8")</p>
-
-<p>String rawRequest = new String(context.httpResponse.getRawResponseData(),
-"UTF-8")</p>
-
-<p></p>
-
-<p>log.info
-"\n*****************************************************************************\nTEST
-CASE NAME:
-${context.testCase.name}\n*****************************************************************************\n"</p>
-
-<p>log.info("\nTest Environment EndPoint is: "+uRL+"\n")</p>
-
-<p>if (rawRequest!=null){</p>
-
-<p>log.info
-"\n*****************************************************************************\nTEST
-CASE NAME:
-${context.testCase.name}\n*****************************************************************************\n"</p>
-
-<p>log.info("\n======================RAW
-REQUEST========================\n"+rawRequest+"\n\n\n")</p>
-
-<p>}</p>
-
-<p>log.info
-"\n*****************************************************************************\nTEST
-CASE NAME:
-${context.testCase.name}\n*****************************************************************************\n"</p>
-
-<p>log.info("\n======================RAW
-RESPONSE==========================\n"+rawResponse+"\n\n\n")</p>
-
-<p></p>
-
-<p><br>
-<br>
-<span style="font-size: 20; color: #134f5c; "><b>Latest updates Aug
-2017</b></span> <br>
-<br>
-</p>
-
-<p></p>
-
-<p><br>
-</p>
-
-<table cellpadding="2" align="center"
-style="font-size: 20; font-weight: bold; ">
-  <tbody>
-    <tr>
-      <td width="160" align="center"><a href="content.html">Content</a></td>
-      <td width="160" align="center"><a
-        href="{{site.baseurl}}/netinstall.html">Netinstall</a></td>
-      <td width="160" align="center"><a
-        href="{{site.baseurl}}/configure.html">Configure</a></td>
-      <td width="160" align="center"><a
-        href="{{site.baseurl}}/tutorials.html">Tutorials</a></td>
-      <td width="160" align="center"><a href="cli.html">CLI</a></td>
-      <td width="160" align="center"><a href="helps.html">Helps</a></td>
-    </tr>
-  </tbody>
+<br><br>
+<table cellpadding="2" align="center"><tr>
+<td><a href="zimages/desktop-01-panels.jpeg"><img src="{{site.baseurl}}/zimages/desktop-01-panels-sm.jpeg" width="320" height="200" alt="Debian desktop with panels"></a></td>
+<td>&nbsp;<a href="zimages/desktop-03-menu.jpeg"><img src="{{site.baseurl}}/zimages/desktop-03-menu-sm.jpeg" width="320" height="200" alt="Debian main menu"></a></td>
+<td>&nbsp;<a href="zimages/desktop-04-obmenu.jpeg"><img src="{{site.baseurl}}/zimages/desktop-04-obmenu-sm.jpeg" width="320" height="200" alt="Debian desktop with Openbox menu"></a></td></tr>
+<tr><td width="50" align="center">My Debian desktop with panels</td>
+<td width="50" align="center">My Debian main menu</td>
+<td width="50" align="center">My Openbox menu</td></tr>
+<tr><td></td><td></td><td></td></tr>
 </table>
-<br>
-<br>
+<br><br><br><br>
 
-
+<br><br><br><br>
 <div style="text-align:center">
-<br>
-<br>
-</div>
+<a href="sitemap.html">Site Map</a>
+<br><br>
+This site is hosted for free at Github. I use Jekyll to transform my site into plain html pages - see my <a href="{{site.baseurl}}/tutorial/22-github-pages.html">github page</a> to know how.
+<br>If you spot any errors in the site please <a href="https://github.com/dquinton/debian-install/issues"><b>record an issue</b></a>, thanks
+<br><br><br>
+I set my font in the style sheet to PT sans, which you can download from <a href="http://www.fontsquirrel.com/fonts/PT-Sans">here</a>.
+<br><br><br><br>
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Debian install notes</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://dquinton.github.io/debian-install/" property="cc:attributionName" rel="cc:attributionURL">D Quinton</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br><br><br>
 </div>
