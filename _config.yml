@@ -7,4 +7,4 @@ github_username:  nrosanta
 # Build settings
 markdown: kramdown
 
-theme: jekyll-theme-cayman
+theme: jekyll-theme-slate
