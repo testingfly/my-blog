@@ -1,9 +1,0 @@
-# Site settings
-title: debian install notes
-baseurl: /test-automation-notes    # the subpath of your site, e.g. /blog/
-url: https//nrosanta.github.io/    # the base hostname & protocol for your site
-github_username:  nrosanta
-
-# Build settings
-markdown: kramdown
-
