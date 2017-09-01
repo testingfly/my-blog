@@ -189,7 +189,7 @@ header.masthead {
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-    padding: 30px 0 20px;
+    padding: 55px 0 15px;
     color: #fff;
     text-shadow: .3px .3px gray;
 }
@@ -197,7 +197,7 @@ header.masthead .site-heading {
     header.masthead .page-heading,
     header.masthead .post-heading,
     header.masthead .site-heading {
-        padding:10px 0 20px;
+        padding:0px 0 auto;
     }
 }
 
@@ -212,6 +212,7 @@ header.masthead .page-heading h1,
 header.masthead .site-heading h1 {
     font-size: 28px;
     margin-top: 0
+
 }
 
 header.masthead .page-heading .subheading,
@@ -220,16 +221,18 @@ header.masthead .site-heading .subheading {
     font-weight: 300;
     line-height: 1.1;
     display: block;
-    margin: 10px 0 0;
+    margin: 0px 0 0px;
     opacity:0.3;
-    text-align:center;
+    text-shadow: .9px 2px red;
+
     filter:alpha(opacity=20);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading h1,
     header.masthead .site-heading h1 {
-        font-size: 36px
+        font-size: 36px;
+
     }
 }
 header.masthead .post-heading h1 {
