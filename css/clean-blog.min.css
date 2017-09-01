@@ -5,7 +5,7 @@
  */
 
 body {
-    font-size: 20px;
+    font-size: 10px;
     color: #333;
     font-family: Lora, 'Times New Roman', serif
 }
@@ -79,54 +79,54 @@ img::-moz-selection {
 body {
     -webkit-tap-highlight-color: #0085a1
 }
-#mainNav {
+#site-nav {
     position: absolute;
     border-bottom: 1px solid #eee;
     background-color: #fff;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
-#mainNav .navbar-brand {
-    font-size: 16px;
+#site-nav .navbar-brand {
+    font-size: 15px;
 	font-weight: 800;
     color: #777
 }
-#mainNav .navbar-toggler {
+#site-nav .navbar-toggler {
     font-size: 12px;
     font-weight: 800;
     padding: 13px;
     text-transform: uppercase;
     color: #777
 }
-#mainNav .navbar-nav>li.nav-item>a {
+#site-nav .navbar-nav>li.nav-item>a {
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase
 }
 @media only screen and (min-width: 992px) {
-    #mainNav {
+    #site-nav {
         border-bottom: 1px solid transparent;
         background: 0 0
     }
-    #mainNav .navbar-brand {
+    #site-nav .navbar-brand {
         padding: 15px 20px;
         color: #fff
     }
-    #mainNav .navbar-brand:focus,
-    #mainNav .navbar-brand:hover {
+    #site-nav .navbar-brand:focus,
+    #site-nav .navbar-brand:hover {
         color: rgba(255, 255, 255, .8)
     }
-    #mainNav .navbar-nav>li.nav-item>a {
+    #site-nav .navbar-nav>li.nav-item>a {
         padding: 15px 20px;
         color: #fff
     }
-    #mainNav .navbar-nav>li.nav-item>a:focus,
-    #mainNav .navbar-nav>li.nav-item>a:hover {
+    #site-nav .navbar-nav>li.nav-item>a:focus,
+    #site-nav .navbar-nav>li.nav-item>a:hover {
         color: rgba(255, 255, 255, .8)
     }
 }
 @media only screen and (min-width: 1170px) {
-    #mainNav {
+    #site-nav {
         -webkit-transition: background-color .2s;
         -moz-transition: background-color .2s;
         transition: background-color .2s;
@@ -135,9 +135,10 @@ body {
         -ms-transform: translate3d(0, 0, 0);
         -o-transform: translate3d(0, 0, 0);
         transform: translate3d(0, 0, 0);
-        -webkit-backface-visibility: hidden
+        -webkit-backface-visibility: hidden;
+        text-shadow: .3px .3px gray;
     }
-    #mainNav.is-fixed {
+    #site-nav.is-fixed {
         position: fixed;
         top: -77px;
         -webkit-transition: -webkit-transform .2s;
@@ -146,21 +147,21 @@ body {
         border-bottom: 1px solid #fff;
         background-color: rgba(255, 255, 255, .9)
     }
-    #mainNav.is-fixed .navbar-brand {
+    #site-nav.is-fixed .navbar-brand {
         color: #333
     }
-    #mainNav.is-fixed .navbar-brand:focus,
-    #mainNav.is-fixed .navbar-brand:hover {
+    #site-nav.is-fixed .navbar-brand:focus,
+    #site-nav.is-fixed .navbar-brand:hover {
         color: #0085a1
     }
-    #mainNav.is-fixed .navbar-nav>li.nav-item>a {
+    #site-nav.is-fixed .navbar-nav>li.nav-item>a {
         color: #333
     }
-    #mainNav.is-fixed .navbar-nav>li.nav-item>a:focus,
-    #mainNav.is-fixed .navbar-nav>li.nav-item>a:hover {
+    #site-nav.is-fixed .navbar-nav>li.nav-item>a:focus,
+    #site-nav.is-fixed .navbar-nav>li.nav-item>a:hover {
         color: #0085a1
     }
-    #mainNav.is-visible {
+    #site-nav.is-visible {
         -webkit-transform: translate3d(0, 100%, 0);
         -moz-transform: translate3d(0, 100%, 0);
         -ms-transform: translate3d(0, 100%, 0);
@@ -176,19 +177,21 @@ header.masthead {
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover
+    background-size: cover;
+
 }
 header.masthead .page-heading,
 header.masthead .post-heading,
 header.masthead .site-heading {
-    padding: 200px 0 50px;
-    color: #fff
+    padding: 100px 0 50px;
+    color: #fff;
+    text-shadow: 1px 1px gray;
 }
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading,
     header.masthead .post-heading,
     header.masthead .site-heading {
-        padding:150px 0
+        padding:60px 0
     }
 }
 header.masthead .page-heading,
@@ -198,11 +201,11 @@ header.masthead .site-heading {
 header.masthead .page-heading h1,
 header.masthead .site-heading h1 {
     font-size: 28px;
-    margin-top: 0
+    margin-top: 0;
 }
 header.masthead .page-heading .subheading,
 header.masthead .site-heading .subheading {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 300;
     line-height: 1.1;
     display: block;
@@ -212,11 +215,11 @@ header.masthead .site-heading .subheading {
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading h1,
     header.masthead .site-heading h1 {
-        font-size: 36px
+        font-size: 30px
     }
 }
 header.masthead .post-heading h1 {
-    font-size: 35px
+    font-size: 30px
 }
 header.masthead .post-heading .meta,
 header.masthead .post-heading .subheading {
@@ -261,10 +264,11 @@ header.masthead .post-heading .meta a {
 }
 .post-preview>a>.post-subtitle {
     font-weight: 300;
-    margin: 0 0 10px
+    margin: 0 0 10px;
+    font-size: 20px
 }
 .post-preview>.post-meta {
-    font-size: 14px;
+    font-size: 10px;
     font-style: italic;
     margin-top: 0;
     color: #777
@@ -280,7 +284,7 @@ header.masthead .post-heading .meta a {
 }
 @media only screen and (min-width: 768px) {
     .post-preview>a>.post-title {
-        font-size: 26px
+        font-size: 20px
     }
 }
 .floating-label-form-group {
@@ -424,4 +428,46 @@ fieldset[disabled] .btn-primary:hover {
     color: #fff;
     border: 1px solid #0085a1;
     background-color: #0085a1
+}
+
+
+
+.page__hero--overlay {
+    position: relative;
+    margin-bottom: 2em;
+    padding: 3em 0;
+    clear: both;
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-animation: intro 0.3s both;
+    animation: intro 0.3s both;
+    -webkit-animation-delay: 0.25s;
+    animation-delay: 0.25s
+}
+@media (min-width: 37.5em) {
+    .page__hero--overlay .page__title {
+        font-size: 2.441em;
+        color: white;
+    }
+}
+
+
+.page__lead {
+    font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+    font-size: 2.25em;
+    color: white
+}
+#particles-js canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    -webkit-transition: opacity 3s ease-in 1s;
+    transition: opacity 3s ease-in 1s
+}
+
+#particles-js canvas.active {
+    opacity: 0.9
 }
