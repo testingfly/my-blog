@@ -5,9 +5,9 @@
  */
 
 body {
-    font-size: 10px;
-    color: #333;
-    font-family: Lora, 'Times New Roman', serif
+  font-size: 18px;
+  color: #333;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 p {
     line-height: 1.5;
@@ -186,6 +186,7 @@ header.masthead .site-heading {
     padding: 100px 0 50px;
     color: #fff;
     text-shadow: 1px 1px gray;
+
 }
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading,

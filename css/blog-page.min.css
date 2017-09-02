@@ -5,9 +5,9 @@
  */
 
 body {
-    font-size: 20px;
+    font-size: 18px;
     color: #333;
-    font-family: Lora, 'Times New Roman', serif
+    font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
 p {
     line-height: 1.5;
@@ -192,6 +192,7 @@ header.masthead .site-heading {
     padding: 55px 0 15px;
     color: #fff;
     text-shadow: .3px .3px gray;
+
 }
 @media only screen and (min-width: 768px) {
     header.masthead .page-heading,
@@ -210,7 +211,7 @@ header.masthead .site-heading {
 }
 header.masthead .page-heading h1,
 header.masthead .site-heading h1 {
-    font-size: 28px;
+    font-size: 28 px;
     margin-top: 0
 
 }
@@ -224,6 +225,7 @@ header.masthead .site-heading .subheading {
     margin: 0px 0 0px;
     opacity:0.3;
     text-shadow: .9px 2px red;
+
 
     filter:alpha(opacity=20);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
