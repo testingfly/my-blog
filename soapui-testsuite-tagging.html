@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SOAPUI Maven Framework</title>
+    <title>SOAPUI - Test Suite Tagging</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -69,16 +69,18 @@
 
     <!-- Main Content -->
     <div class="container">
-      <h2 align=left>SOAPUI and Maven Integration for Test Automation</h2>
+      <h2 align=left>SOAPUI - Tagging by Test Suites</h2>
 	  <div class="row">
         <div class="container" align=justify>
-          <p>Integrating Maven Build System to your existing SOAPUI framework is pretty straightforward with little effort required. However, the benefits are huge especially if it is also coupled with Jenkins for Continuous Test Support. This tutorial focuses only on the Maven integration aspect with a separate one to address the Jenkins Integration.  </p>
+          <p>By default SOAPUI allows for tagging only at the test case level and it need to be explicitly tagged at each test case level. There isn't a tagging mechanism at the test suite or project level. Therefore, if there is a need to define a broader test scope higher than the test case levels, users will have to tag each test case intended to be includd in the scope. This means that even if all the test cases within a test suites are meant to be within scope, it still needs to be tag explicitly at each test case level.  </p>
 
-		  <p>The integration of the Maven build process coupled with a CI framework like Jenkins opens up the door for automatic deployments to support an agile software development process that delivers frequent release versions with continuous test support.</p>
+		  <p>Fortunately, there is a workaround to this through the use of custom property.</p>
 
-          <p>Given below are the breakdown of the requirements for a successful integration -</p>
-		  <li>SOAPUI Maven Plugin</li>
-		  <li>Apache SureFire Plugin</li>
+          <p>Given below are the breakdown of the requirements for a successful tagging at the test suite/project level -</p>
+		  <li>Define a custom tag at the project level</li>
+		  <li>Define custom tags at the test suites levels</li>
+      <li>Drive test suites enablement/disablement based on tags passed/defined at the project level</li>
+    <p>
       <a href="#">
         <img class="img-fluid" src="img/img01.png" alt="" height=50% width=30%>
       </a>
