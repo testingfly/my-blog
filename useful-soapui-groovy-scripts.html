@@ -82,10 +82,22 @@
       <p style="text-align: left; padding-left: 60px;"><span style="font-size: 12pt; color: #000080;"><em>if (rawRequest!=null){</em></span><br /><span style="font-size: 12pt; color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>&nbsp;"\n*****************************************************************************\nTEST CASE NAME: ${<a class="external-link" href="http://context.testcase.name/" rel="nofollow">context.testCase.name</a>}\n*****************************************************************************\n"</em></span><br /><span style="font-size: 12pt; color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>("\n======================RAW REQUEST========================\n"+rawRequest+"\n\n\n")</em></span><br /><span style="font-size: 12pt; color: #000080;"><em>}</em></span></p>
       <p style="text-align: left; padding-left: 60px;"><span style="font-size: 12pt; color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>&nbsp;"\n*****************************************************************************\nTEST CASE NAME: ${<a class="external-link" href="http://context.testcase.name/" rel="nofollow">context.testCase.name</a>}\n*****************************************************************************\n"</em></span><br /><span style="font-size: 12pt; color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>("\n======================RAW RESPONSE==========================\n"+rawResponse+"\n\n\n")</em></span></p>
 
+      <p style="padding-left: 60px;">
+      <a href="img/img05.png">
+        <img class="img-fluid" src="img/img05.png" alt="" height=50% width=100%>
+      </a>
+      </p>
 
       <li><b>Scripts to log Test case Status to Console</b></li>
       <p style="padding-left: 30px;">Add the following Project Event (i.e. TestSuiteRunListener.afterRun) with the scripts to gracefully log the Test Case Status -</p>
       <p style="padding-left: 60px; text-align: left;"><span style="color: #000080;"><em>if ("${context.testRunner.getStatus()}"=="FINISHED")</em></span><br /><span style="color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>&nbsp;"\n*************************************************************************\nTEST CASE STATUS: PASSED\n*************************************************************************\n"</em></span><br /><span style="color: #000080;"><em>else</em></span><br /><span style="color: #000080;"><em><a class="external-link" href="http://log.info/" rel="nofollow">log.info</a>&nbsp;"\n*************************************************************************\nTEST CASE STATUS: FAILED\n*************************************************************************\n"</em></span></p>
+
+      <p style="padding-left: 60px;">
+      <a href="img/img06.png">
+        <img class="img-fluid" src="img/img06.png" alt="" height=50% width=100%>
+      </a>
+      </p>
+
 
       <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
 
