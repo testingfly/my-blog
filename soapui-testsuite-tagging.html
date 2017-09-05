@@ -5,8 +5,9 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Tags SOAPUI">
     <meta name="author" content="">
+
 
     <title>SOAPUI - Test Suite Tagging</title>
 
@@ -29,7 +30,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="site-nav">
       <div class="container">
-        <a class="navbar-brand" href="index.html">Recent Posts</a>
+        <a class="navbar-brand" href="soapui-testsuite-tagging.html">Recent Posts</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -43,7 +44,7 @@
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="soapui-maven-framework.html">Featured Posts</a>
+              <a class="nav-link" href="soapui-testsuite-tagging.html">Featured Posts</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="contact.html">Contact</a>
@@ -72,29 +73,38 @@
       <h2 align=left>SOAPUI - Tagging by Test Suites</h2>
 	  <div class="row">
         <div class="container" align=justify>
-          <p>By default SOAPUI allows for tagging only at the test case level and it needs to be explicitly tagged at each test case level. There isn't a tagging mechanism at the test suite or project level. Therefore, if there is a need to define a broader test scope higher than the test case levels, users will have to tag each test case intended to be includd in the scope. This means that even if all the test cases within a test suites are meant to be within scope, it still needs to be explicitly tagged at each test case level.  </p>
+          By default SOAPUI allows for tagging only at the test case level and it needs to be explicitly tagged at each test case level. There isn't a tagging mechanism at the test suite or project level. Therefore, if there is a need to define a broader test scope higher than the test case levels, users will have to tag each test case intended to be includd in the scope. This means that even if all the test cases within a test suites are meant to be within scope, it still needs to be explicitly tagged at each test case level.  <br>
 
 		  <p>Fortunately, there is a workaround to this through the use of custom property and setup scripts that can be dynamically initialized to exclude or include test suites during the execution.</p>
 
           <p>Given below are the breakdown of the requirements for a successful tagging at the test suite/project level -</p>
 
       <ol>
-        <li>Define a custom tag at the project level</li>
+        <li><b>Define a custom tag at the project level</li></b>
+        In the example beow, "tagProject" is the custom property defined to drive the test execution scope based on the value passed. The value of this property can be passed as an environment variable from the CLI during execution.
+
+      <br>
       <a href="img/img01.png">
         <img class="img-fluid" src="img/img01.png" alt="" height=50% width=30%>
       </a>
       <p>
 
-		  <li>Add the following "Setup Scripts" at the project level to include/exclude test suites based on the tag passed.</li>
+
+		  <li> <b> Add the following "Setup Scripts" at the project level to include/exclude test suites based on the tag passed.</li> </b>
+              This setup script will compare the project level tag received as parameter and compare it against the test suite level tags and enable/disable the test suites accorindgly.
+              For example if "SmokeTest" is the tag passed during runtime, the script will quickly scan through the test suites and enable only the ones matching the tag value. In other words, all test suites with tags not matching the value passed will be disabled.
           <p style="padding-left: 60px;"><span style="color: #000080;"><em> def tagProject = context.expand( '${#Project#tagProject}' )</em></span><br /><span style="color: #000080;"><em> log.info("tagName passed is: "+tagProject)</em></span><br /><span style="color: #000080;"><em> for( testSuite in project.testSuiteList )</em></span><br /><span style="color: #000080;"><em> {</em></span><br /><span style="color: #000080;"><em> String tagTestSuite = testSuite.properties['tag'].value</em></span><br /><span style="color: #000080;"><em> if (tagTestSuite.contains(tagProject))</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = false</em></span><br /><span style="color: #000080;"><em> else</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = true</em></span><br /><span style="color: #000080;"><em> }</em></span></p>
-      <li>Add a custom property at each test suite level to define the scope for each test suite.</li>
-      <p>
+      <li><b>Add a custom property at each test suite level to define the scope for each test suite.</li></b>
+      In the example below, "E2E" is the tag defined for the test suite.
+      <br>
       <a href="img/img02.png">
         <img class="img-fluid" src="img/img02.png" alt="" height=50% width=30%>
       </a>
+      <p>
 
-      <li>Pass the value of the project level tag as parameter when executing the test.</li>
+      <li><b>Pass the value of the project level tag as parameter when executing the test.</li></b>
       <span style="color: #000080;"><em>Example: mvn clean install -DtagProject = "SmokeTest"</em></span>
+      <br>In the above example,"SmokeTest" is the value passed for the custom tag "tagProject" defined at the project level.
       <p>
 
 
