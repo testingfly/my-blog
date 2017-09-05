@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:ror="http://rorweb.com/0.1/" >
+<channel>
+  <title>ROR Sitemap for https://www.testingfly.com/</title>
+  <link>https://www.testingfly.com/</link>
+
+<item>
+     <link>https://www.testingfly.com/</link>
+     <title>testingfly.com</title>
+     <description>testingfly.com - sharing test automation tips and tricks</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>0</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/soapui-testsuite-tagging.html</link>
+     <title>SOAPUI - Test Suite Tagging</title>
+     <description>Tags SOAPUI</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/index.html</link>
+     <title>testingfly.com</title>
+     <description>testingfly.com - sharing test automation tips and tricks</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/about.html</link>
+     <title>About Me</title>
+     <description>About Me</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/contact.html</link>
+     <title>Contact Me</title>
+     <description>Contact Me</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/useful-soapui-groovy-scripts.html</link>
+     <title>SOAPUI Maven Framework</title>
+     <description>SOAPUI Maven Framework</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/post.html</link>
+     <title>Featured Posts</title>
+     <description>Featured Posts</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+<item>
+     <link>https://www.testingfly.com/soapui-maven-framework.html</link>
+     <title>SOAPUI Maven Framework</title>
+     <description>SOAPUI Maven Framework</description>
+     <ror:updatePeriod>daily</ror:updatePeriod>
+     <ror:sortOrder>1</ror:sortOrder>
+     <ror:resourceOf>sitemap</ror:resourceOf>
+</item>
+</channel>
+</rss>
+  

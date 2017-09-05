@@ -1,0 +1,8 @@
+https://www.testingfly.com/
+https://www.testingfly.com/soapui-testsuite-tagging.html
+https://www.testingfly.com/index.html
+https://www.testingfly.com/about.html
+https://www.testingfly.com/contact.html
+https://www.testingfly.com/useful-soapui-groovy-scripts.html
+https://www.testingfly.com/post.html
+https://www.testingfly.com/soapui-maven-framework.html
