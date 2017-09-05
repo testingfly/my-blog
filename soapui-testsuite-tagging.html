@@ -72,18 +72,33 @@
       <h2 align=left>SOAPUI - Tagging by Test Suites</h2>
 	  <div class="row">
         <div class="container" align=justify>
-          <p>By default SOAPUI allows for tagging only at the test case level and it need to be explicitly tagged at each test case level. There isn't a tagging mechanism at the test suite or project level. Therefore, if there is a need to define a broader test scope higher than the test case levels, users will have to tag each test case intended to be includd in the scope. This means that even if all the test cases within a test suites are meant to be within scope, it still needs to be tag explicitly at each test case level.  </p>
+          <p>By default SOAPUI allows for tagging only at the test case level and it needs to be explicitly tagged at each test case level. There isn't a tagging mechanism at the test suite or project level. Therefore, if there is a need to define a broader test scope higher than the test case levels, users will have to tag each test case intended to be includd in the scope. This means that even if all the test cases within a test suites are meant to be within scope, it still needs to be explicitly tagged at each test case level.  </p>
 
-		  <p>Fortunately, there is a workaround to this through the use of custom property.</p>
+		  <p>Fortunately, there is a workaround to this through the use of custom property and setup scripts that can be dynamically initialized to exclude or include test suites during the execution.</p>
 
           <p>Given below are the breakdown of the requirements for a successful tagging at the test suite/project level -</p>
-		  <li>Define a custom tag at the project level</li>
-		  <li>Define custom tags at the test suites levels</li>
-      <li>Drive test suites enablement/disablement based on tags passed/defined at the project level</li>
-    <p>
-      <a href="#">
+
+      <ol>
+        <li>Define a custom tag at the project level</li>
+      <a href="img/img01.png">
         <img class="img-fluid" src="img/img01.png" alt="" height=50% width=30%>
       </a>
+      <p>
+
+		  <li>Add the following "Setup Scripts" at the project level to include/exclude test suites based on the tag passed.</li>
+          <p style="padding-left: 60px;"><span style="color: #000080;"><em> def tagProject = context.expand( '${#Project#tagProject}' )</em></span><br /><span style="color: #000080;"><em> log.info("tagName passed is: "+tagProject)</em></span><br /><span style="color: #000080;"><em> for( testSuite in project.testSuiteList )</em></span><br /><span style="color: #000080;"><em> {</em></span><br /><span style="color: #000080;"><em> String tagTestSuite = testSuite.properties['tag'].value</em></span><br /><span style="color: #000080;"><em> if (tagTestSuite.contains(tagProject))</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = false</em></span><br /><span style="color: #000080;"><em> else</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = true</em></span><br /><span style="color: #000080;"><em> }</em></span></p>
+      <li>Add a custom property at each test suite level to define the scope for each test suite.</li>
+      <p>
+      <a href="img/img02.png">
+        <img class="img-fluid" src="img/img02.png" alt="" height=50% width=30%>
+      </a>
+
+      <li>Pass the value of the project level tag as parameter when executing the test.</li>
+      <span style="color: #000080;"><em>Example: mvn clean install -DtagProject = "SmokeTest"</em></span>
+      <p>
+
+
+    </ol>
       <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
 
 
