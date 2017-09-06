@@ -488,3 +488,19 @@ fieldset[disabled] .btn-primary:hover {
 #particles-js canvas.active {
     opacity: 0.9
 }
+
+.code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    background: rgb(240,240,240);
+    border: 1px solid #CCC;
+    line-height: 18px;
+    text-align: left;
+    margin-top: -3px;
+    margin-bottom: 15px;
+    padding-left: 2px;
+    height:auto;
+    width:90%;
+    padding-left: 2%;
+    margin:0 auto
+}
