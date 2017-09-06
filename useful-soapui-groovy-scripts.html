@@ -77,9 +77,9 @@
 
       <p style="padding-left: 30px;">Add the following Project Event (i.e. RequestFilter.afterRequest) with the scripts to gracefully log the Request and Response Pairs along with the Test Case details -</p>
       <div class="code">
-        <span style="color: #003366;"><em>String rawRequest = new String(context.httpResponse.getRawRequestData(), "UTF-8")&nbsp;</em></span><br /><span style="color: #003366;"><em>String rawResponse = new String(context.httpResponse.getRawResponseData(), "UTF-8")&nbsp;</em></span><br /><span style="color: #003366;"><em>log.info "\n*************************\nTEST CASE NAME: ${context.testCase.name}\n*************************\n"</em></span><br /><span style="color: #003366;"><em>if (rawRequest!=null){</em></span><br /><span style="color: #003366;">
-          &nbsp; &nbsp;<em>log.info "\n*************************\nTEST CASE NAME: ${context.testCase.name}\n*************************\n"</em></span><br /><span style="color: #003366;">
-            &nbsp; &nbsp;<em>log.info("\n======================RAW REQUEST========================\n"+rawRequest+"\n\n\n")</em></span><br /><span style="color: #003366;"><em>}</em></span><br /><span style="color: #003366;"><em>log.info "\n*************************\nTEST CASE NAME: ${context.testCase.name}\n*************************\n"</em></span><br /><span style="color: #003366;"><em>log.info("\n======================RAW RESPONSE==========================\n"+rawResponse+"\n\n\n")</em></span>
+        <span style="color: #003366;"><em>String rawRequest = new String(context.httpResponse.getRawRequestData(), "UTF-8")&nbsp;</em></span><br /><span style="color: #003366;"><em>String rawResponse = new String(context.httpResponse.getRawResponseData(), "UTF-8")&nbsp;</em></span><br /><span style="color: #003366;"><em>log.info "TEST CASE NAME: ${context.testCase.name}\n"</em></span><br /><span style="color: #003366;"><em>if (rawRequest!=null){</em></span><br /><span style="color: #003366;">
+          &nbsp; &nbsp;<em>log.info "TEST CASE NAME: ${context.testCase.name}"</em></span><br /><span style="color: #003366;">
+            &nbsp; &nbsp;<em>log.info("RAW REQUEST"+rawRequest+"\n\n\n")</em></span><br /><span style="color: #003366;"><em>}</em></span><br /><span style="color: #003366;"><em>log.info "TEST CASE NAME: ${context.testCase.name}"</em></span><br /><span style="color: #003366;"><em>log.info("RAW RESPONSE"+rawResponse+"\n\n\n")</em></span>
     </div>
       <p style="padding-left: 60px;">
       <a href="img/img05.png">
@@ -90,7 +90,7 @@
       <li><b>Scripts to log Test case Status to Console</b></li>
       <p style="padding-left: 30px;">Add the following Project Event (i.e. TestSuiteRunListener.afterRun) with the scripts to gracefully log the Test Case Status -</p>
       <div class="code">
-          <span style="color: #000080;"><em>if ("${context.testRunner.getStatus()}"=="FINISHED")</em></span><br /><span style="color: #000080;"><em><alog.info</a>&nbsp;&nbsp;&nbsp;"\n********************nTEST CASE STATUS: PASSED\n******************** \n"</em></span><br /><span style="color: #000080;"><em>else</em></span><br /><span style="color: #000080;"><em><a>&nbsp; &nbsp;log.info</a>&nbsp;"\n********************nTEST CASE STATUS: FAILED\n******************** \n"</em></span>
+          <span style="color: #000080;"><em>if ("${context.testRunner.getStatus()}"=="FINISHED")</em></span><br /><span style="color: #000080;"><em><alog.info</a>&nbsp;&nbsp;&nbsp;"TEST CASE STATUS: PASSED"</em></span><br /><span style="color: #000080;"><em>else</em></span><br /><span style="color: #000080;"><em><a>&nbsp; &nbsp;log.info</a>&nbsp;"TEST CASE STATUS: FAILED"</em></span>
       </div>
       <p style="padding-left: 60px;">
       <a href="img/img06.png">
