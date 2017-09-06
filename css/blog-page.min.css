@@ -502,5 +502,7 @@ fieldset[disabled] .btn-primary:hover {
     height:auto;
     width:89%;
     padding-left: 2%;
-    margin:0 auto
+    margin:0 auto;
+    word-break:break-all;
+
 }
