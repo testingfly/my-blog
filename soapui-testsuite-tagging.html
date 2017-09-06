@@ -93,7 +93,9 @@
 		  <li> <b> Add the following "Setup Scripts" at the project level to include/exclude test suites based on the tag passed.</li> </b>
               This setup script will compare the project level tag received as parameter and compare it against the test suite level tags and enable/disable the test suites accorindgly.
               For example if "SmokeTest" is the tag passed during runtime, the script will quickly scan through the test suites and enable only the ones matching the tag value. In other words, all test suites with tags not matching the value passed will be disabled.
-          <p style="padding-left: 60px;"><span style="color: #000080;"><em> def tagProject = context.expand( '${#Project#tagProject}' )</em></span><br /><span style="color: #000080;"><em> log.info("tagName passed is: "+tagProject)</em></span><br /><span style="color: #000080;"><em> for( testSuite in project.testSuiteList )</em></span><br /><span style="color: #000080;"><em> {</em></span><br /><span style="color: #000080;"><em> String tagTestSuite = testSuite.properties['tag'].value</em></span><br /><span style="color: #000080;"><em> if (tagTestSuite.contains(tagProject))</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = false</em></span><br /><span style="color: #000080;"><em> else</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = true</em></span><br /><span style="color: #000080;"><em> }</em></span></p>
+          <div class="code">
+            <p style="padding-left: 60px;"><span style="color: #000080;"><em> def tagProject = context.expand( '${#Project#tagProject}' )</em></span><br /><span style="color: #000080;"><em> log.info("tagName passed is: "+tagProject)</em></span><br /><span style="color: #000080;"><em> for( testSuite in project.testSuiteList )</em></span><br /><span style="color: #000080;"><em> {</em></span><br /><span style="color: #000080;"><em> String tagTestSuite = testSuite.properties['tag'].value</em></span><br /><span style="color: #000080;"><em> if (tagTestSuite.contains(tagProject))</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = false</em></span><br /><span style="color: #000080;"><em> else</em></span><br /><span style="color: #000080;"><em> testSuite.disabled = true</em></span><br /><span style="color: #000080;"><em> }</em></span></p>
+          </div>
       <li><b>Add a custom property at each test suite level to define the scope for each test suite.</li></b>
       In the example below, "E2E" is the tag defined for the test suite.
       <br>
@@ -103,8 +105,8 @@
       <p>
 
       <li><b>Pass the value of the project level tag as parameter when executing the test.</li></b>
-      <span style="color: #000080;"><em>Example: mvn clean install -DtagProject = "SmokeTest"</em></span>
-      <br>In the above example,"SmokeTest" is the value passed for the custom tag "tagProject" defined at the project level.
+      <div class="code"><span style="color: #000080;"><em>Example: mvn clean install -DtagProject = "SmokeTest"</em></span></div>
+      In the above example,"SmokeTest" is the value passed for the custom tag "tagProject" defined at the project level.
       <p>
 
 

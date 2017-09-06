@@ -1,0 +1,104 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.test</groupId>
+   <artifactId>test/artifactId>
+   <version>1.0</version>
+   <pluginRepositories>
+      <pluginRepository>
+         <id>SmartBearPluginRepository</id>
+         <url>http://smartbearsoftware.com/repository/maven2</url>
+      </pluginRepository>
+      <pluginRepository>
+         <id>CustomPluginRepository</id>
+         <url>http://repo1.maven.org/maven2</url>
+      </pluginRepository>
+   </pluginRepositories>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>com.smartbear</groupId>
+            <artifactId>ready-api-maven-plugin</artifactId>
+            <version>2.0.0</version>
+            <executions>
+               <execution>
+                  <phase>test</phase>
+                  <goals>
+                     <goal>test</goal>
+                  </goals>
+                  <configuration>
+                     <projectFile>${basedir}/WFG_API_AAG_2.0_TEST.xml</projectFile>
+                     <outputFolder>${basedir}/target/soapui-reports</outputFolder>
+                     <reportFormat>PDF</reportFormat>
+                     <environment>${Environment}</environment>
+                     <junitReport>true</junitReport>
+                     <exportAll>true</exportAll>
+                     <testSuite>${testSuite}</testSuite>
+                     <!--Specifies the name of the test case to run.-->
+                     <testCase>${testCase}</testCase>
+                     <reportName>Project Report</reportName>
+                     <!--Enables HTML coverage reports. Only available in Ready! API Pro.-->
+                     <coverage>true</coverage>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <!--Add Maven Site Plugin.-->
+         <!--This plugin improves test stability and prepares test data for Maven SureFire.-->
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-site-plugin</artifactId>
+            <version>3.5</version>
+            <configuration>
+               <locales>en</locales>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+   <!--Add Maven SureFire Plugin to generate JUnit XML reports.-->
+   <reporting>
+      <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-project-info-reports-plugin</artifactId>
+            <version>2.8</version>
+            <configuration>
+                <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+            </configuration>
+        </plugin>
+
+       <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-report-plugin</artifactId>
+            <version>2.20</version>
+
+            <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
+            <configuration>
+              <argLine>-Dsoapui.home=/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</argLine>
+
+              <outputName>Test Result</outputName>
+              <reportsDirectories>
+                <reportsDirectories>${basedir}/target/soapui-reports</reportsDirectories>
+              </reportsDirectories>
+
+              <!--Property variables defined to capture inputs from Maven-->
+              <systemPropertyVariables>
+                <propertyName>Environment</propertyName>
+                <propertyName>testSuite</propertyName>
+                <propertyName>testCase</propertyName>
+              </systemPropertyVariables>
+            </configuration>
+            <reportSets>
+                <reportSet>
+                    <id>site</id>
+                    <reports>
+                        <report>report-only</report>
+                    </reports>
+                </reportSet>
+            </reportSets>
+         </plugin>
+      </plugins>
+   </reporting>
+</project>
