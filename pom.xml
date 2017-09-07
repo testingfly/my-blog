@@ -74,11 +74,10 @@
             <artifactId>maven-surefire-report-plugin</artifactId>
             <version>2.20</version>
 
-            <!--soapui.home>/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</soapui.home-->
             <configuration>
-              <argLine>-Dsoapui.home=/Applications/ReadyAPI-2.0.0.app/Contents/java/app/bin</argLine>
-
               <outputName>Test Result</outputName>
+
+              <!--target directory-->
               <reportsDirectories>
                 <reportsDirectories>${basedir}/target/soapui-reports</reportsDirectories>
               </reportsDirectories>
@@ -90,6 +89,7 @@
                 <propertyName>testCase</propertyName>
               </systemPropertyVariables>
             </configuration>
+
             <reportSets>
                 <reportSet>
                     <id>site</id>

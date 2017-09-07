@@ -504,5 +504,7 @@ fieldset[disabled] .btn-primary:hover {
     padding-left: 2%;
     margin:0 auto;
     word-break:break-all;
+    color:#00008B;
+    
 
 }
