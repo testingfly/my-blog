@@ -224,7 +224,7 @@ header.masthead .site-heading .subheading {
     display: block;
     margin: 0px 0 0px;
     opacity:0.3;
-    text-shadow: .9px 2px red;
+    text-shadow: .9px 2px gray;
 
 
     filter:alpha(opacity=20);
@@ -505,6 +505,6 @@ fieldset[disabled] .btn-primary:hover {
     margin:0 auto;
     word-break:break-all;
     color:#00008B;
-    
+
 
 }
