@@ -505,6 +505,13 @@ fieldset[disabled] .btn-primary:hover {
     margin:0 auto;
     word-break:break-all;
     color:#00008B;
+}
 
+#container-left{
+float:left;
+}
+
+#container-right{
+float:left;
 
 }

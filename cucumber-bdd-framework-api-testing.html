@@ -5,10 +5,11 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="Cucumber BDD Framework with Java for Test Automation>
     <meta name="author" content="">
 
-    <title>SOAPUI Maven Framework</title>
+
+    <title>Cucumber BDD Framework with Java for Test Automation</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +60,7 @@
         <div class="row">
           <div class="col-lg-11 col-md-10 mx-auto">
             <div class="page-heading">
-              <!--h1>SOAPUI and Maven Integration for Test Automation</h1-->
+              <!--h1></h1-->
               <span class="subheading">testingfly.com</span>
             </div>
           </div>
@@ -69,19 +70,88 @@
 
     <!-- Main Content -->
     <div class="container">
-      <h2 align=left>SOAPUI and Maven Integration for Test Automation</h2>
+      <h2 align=left>Cucumber BDD Framework with Java for Test Automation</h2>
 	  <div class="row">
         <div class="container" align=justify>
-          <p>Integrating Maven Build System to your existing SOAPUI framework is pretty straightforward with little effort required. However, the benefits are huge especially if it is also coupled with Jenkins for Continuous Test Support. This tutorial focuses only on the Maven integration aspect with a separate one to address the Jenkins Integration.  </p>
+            <p><b>What is Behavior Driven Development or BDD?</b><br>
+              BDD is an approach for building a shared understanding on what software to build by working through examples and use cases.It helps you describe what you want the system to do by talking through example behaviors. Work from the outside-in to implement   those behaviors using the examples to validate what’s being built.
+            </p>
 
-		  <p>The integration of the Maven build process coupled with a CI framework like Jenkins opens up the door for automatic deployments to support an agile software development process that delivers frequent release versions with continuous test support.</p>
+            <p>
+              <a href="img/bdd01.jpg">
+                  <img class="img-fluid" src="img/bdd01.jpg" alt="" height=70% width=40%>
+              </a>
+            </p>
 
-          <p>Given below are the breakdown of the requirements for a successful integration -</p>
-		  <li>SOAPUI Maven Plugin</li>
-		  <li>Apache SureFire Plugin</li>
+            <p><b>Key Benefits of BDD?</b><br>
+              BDD is an abstraction of TDD (Test Driven Development). They both essentially follow the same practices, but, BDD focuses more on the behavior of application, rather than the implementation, using a language where stakeholders can participate and collaborate. <br>
 
-      <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.
-      <br> - Michael Collins, flew on Gemini 10 and Apollo 11</span>
+              Given below are some key benefits:
+
+
+            </p>
+
+      <ul>
+        <li>Better collaboration and communication within all stake holders</li>
+        <li>A shared language ensures everyone (technical or not) has thorough visibility into the project’s progression</li>
+        <li>Comprehensible and useable without programming expertise.</li>
+        <li>Fewer Defects</li>
+        <li>Living Documentation</li>
+        <li>Proven platform for Continuous Integration and Delivery (CI/CD)</li>
+      </ul>
+
+      <p>
+      <b>Cucumber based BDD Workflow</b><br>
+
+        <a href="img/bdd02.jpg">
+            <img class="img-fluid" src="img/bdd02.jpg" alt="" height=70% width=65%>
+        </a>
+      </p>
+
+      <b>What is Cucumber and Gherkin?</b><br>
+            <b>Cucumber: </b>It is a BDD tool/framework for collaboration between all members of the team. It offers a way to write tests that anybody can understand, regardless of their technical knowledge.
+            Cucumber first and foremost is a collaboration tool aiming for a common understanding across all members of a team. Cucumber features should be written before the code implementing the feature. When you work with BDD writing examples, regression tests are a by-product.<p>
+
+            <b>Gherkin: </b>Gherkin is the language that Cucumber understands. It is a Business Readable, Domain Specific Language that lets you describe software's behavior without detailing how that behavior is implemented. Gherkin serves two purposes — documentation and automated tests. <p>
+
+            The business facing parts of a Cucumber test suite , known as feature files must be written following the Gherkin syntax.
+
+            <a href="img/bdd03.jpg">
+                <img class="img-fluid" src="img/bdd03.jpg" alt="" height=70% width=35%>
+            </a>
+
+            <div id="container-left">
+              <p><span style="color: #000000; font-size: 13pt;"><strong>BDD-Cucumber Example using the Gherkin Syntax</strong></span></p>
+              <p style="padding-left: 30px;"><span style="color: #800000; font-size: 13pt;"><em># feature/search_product.feature</em></span><br /><span style="font-size: 13pt;"><em><strong> Feature</strong>:&nbsp;Search Product</em></span><br /><span style="font-size: 13pt;"><em> As a user I want to be able to search products</em></span><br /><span style="font-size: 13pt;"><em> and see listing based on the search criteria</em></span></p>
+              <p style="padding-left: 30px;"><span style="font-size: 13pt;"><em><span style="color: #008080;">Scenario</span>:&nbsp;<span style="color: #000000;">User searches for a product on the Amazon site</span></em></span><br /><span style="font-size: 13pt;"><em><span style="color: #008080;"> When</span>&nbsp;<span style="color: #000000;">user searches for a product</span></em></span><br /><span style="font-size: 13pt;"><em><span style="color: #008080;"> Then</span>&nbsp;<span style="color: #000000;">user receives a listing of matching products</span></em></span></p>
+            </div>
+
+
+            <br><br><br><br>
+             <a href="img/bdd04.jpg">
+                <img class="img-fluid" src="img/bdd04.jpg" alt="" height=100% width=18%>
+             </a>
+           </div><br>
+
+
+      <div id = "container">
+      Add a custom property at each test suite level to define the scope for each test suite.
+      In the example below, "E2E" is the tag defined for the test suite.
+      <br>
+
+      <p>
+
+      <li><b>Pass the value of the project level tag as parameter when executing the test.</li></b>
+      <div class="code"><span style="color: #000080;"><em>Example: mvn clean install -DtagProject = "SmokeTest"</em></span></div>
+      In the above example,"SmokeTest" is the value passed for the custom tag "tagProject" defined at the project level.
+      <p>
+
+
+    </ol>
+    <br>
+    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.
+    <br> - Michael Collins, flew on Gemini 10 and Apollo 11</span>
+
 
 
         </div>
@@ -90,6 +160,7 @@
 
     <hr>
 
+    <p {padding-left: 80px;}
     <div id="disqus_thread"></div>
     <script>
 
@@ -113,6 +184,7 @@
 
 
     <script id="dsq-count-scr" src="//testingfly-com.disqus.com/count.js" async></script>
+  </p>
 
     <!-- Footer -->
     <footer>
@@ -141,6 +213,14 @@
                   <span class="fa-stack fa-lg">
                     <i class="fa fa-circle fa-stack-2x"></i>
                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="sitemap.html">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
                   </span>
                 </a>
               </li>
