@@ -1,0 +1,10 @@
+<meta content=" In this article I will explain how to run SOAPUI tests in headless mode. We will use Maven and Jenkins for automation. There is&nbsp;soapui-mave..." property="og:description">
+
+<meta content="SOAPUI Test Automation using Maven and Jenkins" property="og:title">
+
+<title>SOA &amp; IBM Integration - Technical articles: SOAPUI Test Automation using Maven and Jenkins</title>
+
+<meta content="SOAPUI Test Automation using Maven and Jenkins" property="og:title">
+
+<meta content="http://anandawasthitech.blogspot.com/2015/10/soapui-test-automation-using-maven-and.html" property="og:url">
+
