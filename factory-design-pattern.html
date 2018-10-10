@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Factory Design Pattern">
+    <meta name="author" content="">
+
+
+    <title>Factory Design Pattern</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/blog-page.min.css" rel="stylesheet">
+	<link rel="icon" href="img/favicon.png" />
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="site-nav">
+      <div class="container">
+        <a class="navbar-brand" href="soapui-testsuite-tagging.html">Recent Posts</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="soapui-testsuite-tagging.html">Featured Posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/wm07.jpg')">
+      <div id="particles-js"  class="page__hero--overlay">
+        <div class="row">
+          <div class="col-lg-11 col-md-10 mx-auto">
+            <div class="page-heading">
+              <!--h1>SOAPUI and Maven Integration for Test Automation</h1-->
+              <span class="subheading">testingfly.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <h2 align=left>Introduction to the Factory Design Pattern</h2>
+	  <div class="row">
+        <div class="container" align=justify>
+          Factory design pattern is a creational pattern providing an efficient way of creating an object by providing an abstracted layer separating the creation logic from the client code.  Per wikipedia, the Factory design pattern is one of the twenty-three well-known "Gang of Four" design patterns that describe how to solve recurring design problems to design flexible and reusable object-oriented software, that is, objects that are easier to implement, change, test, and reuse.<br><br>
+
+		  The Factory Method design pattern solves problems like: <br>
+<ul>
+    <li>How can an object be created so that subclasses can redefine which class to instantiate?</li>
+    <li>How can a class defer instantiation to subclasses?
+    </li>
+</ul>
+    Creating an object directly within the class that requires (uses) the object is inflexible because it commits the class to a particular object and makes it impossible to change the instantiation independently from (without having to change) the class. <br><br>
+
+    The Factory Method design pattern describes how to solve such problems:
+<ul>
+    <li>Define a separate operation (factory method) for creating an object.
+    <li>Create an object by calling a factory method.
+    This enables writing of subclasses to change the way an object is created (to redefine which class to instantiate).
+</ul>
+    <a href="img/factory-design-uml.jpg">
+        <img class="img-fluid" src="img/factory-design-uml.jpg" alt="" height=70% width=70%>
+      </a>
+            </p>
+
+          <p>Given below are sample codes implementing the UML diagram above -</p>
+
+    
+          <div class="code">
+            <pre style='text-align: left; border: 1px  #008DEF; line-height: 18px; padding: 15px; font-size: 13px; font-family:'Courier New', Courier, monospace; overflow: auto;'><span style='color:#3F5FBF'>/**
+Product interface
+**/</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>interface</span> Travel <span style='font-weight:bold;color:#D3171B'>{</span>
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> bookTravel(String travel_id);
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> cancelTravel(String travel_id);
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> displayTravelInfo();
+<span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='color:#3F5FBF'>/**
+Libray Classes - concrete implementations of Product
+**/</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> BusTravel <span style='font-weight:bold;color:#7B0052;'>implements</span> Travel <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> bookTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Booking travel..."</span>);
+
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> cancelTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Cancelling travel..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> displayTravelInfo(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Displaying travel info..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> TrainTravel <span style='font-weight:bold;color:#7B0052;'>implements</span> Travel <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> bookTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Booking travel..."</span>);
+
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> cancelTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Cancelling travel..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> displayTravelInfo(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Displaying travel info..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> FlightTravel <span style='font-weight:bold;color:#7B0052;'>implements</span> Travel <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> bookTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Booking travel..."</span>);
+
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> cancelTravel(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Cancelling travel..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> displayTravelInfo(String travel_id) <span style='font-weight:bold;color:#D3171B'>{</span>
+  System.out.println(<span style='color:#2A00FF'>"Displaying travel info..."</span>);
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='color:#3F5FBF'>/**
+Creator abstract class
+**/</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>abstract</span> <span style='font-weight:bold;color:#7B0052;'>class</span> TravelCreator() <span style='font-weight:bold;color:#D3171B'>{</span>
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>abstract</span> Travel getTravel();
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='color:#3F5FBF'>/**
+Concrete Product Creator
+**/</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> BusTravelCreator <span style='font-weight:bold;color:#7B0052;'>extends</span> TravelCreator() <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> Travel getTravel() <span style='font-weight:bold;color:#D3171B'>{</span>
+  <span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> BusTravel();
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> TrainTravelCreator <span style='font-weight:bold;color:#7B0052;'>extends</span> TravelCreator() <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> Travel getTravel() <span style='font-weight:bold;color:#D3171B'>{</span>
+  <span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> TrainTravel();
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> FlightTravelCreator <span style='font-weight:bold;color:#7B0052;'>extends</span> TravelCreator() <span style='font-weight:bold;color:#D3171B'>{</span>
+ @Override
+ <span style='font-weight:bold;color:#7B0052;'>public</span> Travel getTravel() <span style='font-weight:bold;color:#D3171B'>{</span>
+  <span style='font-weight:bold;color:#7B0052;'>return</span> <span style='font-weight:bold;color:#7B0052;'>new</span> FlightTravel();
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+
+<span style='color:#3F5FBF'>/**
+Client Code
+**/</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> TravelBooking <span style='font-weight:bold;color:#D3171B'>{</span>
+ <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>final</span> TravelCreator creator;
+
+ <span style='font-weight:bold;color:#7B0052;'>public</span> TravelBooking(TravelCreator creator) <span style='font-weight:bold;color:#D3171B'>{</span>
+  this.creator = creator;
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+ <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> displayTravelInfo() <span style='font-weight:bold;color:#D3171B'>{</span>
+  creator.getTravel().displayTravelInfo();
+ <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span>
+
+TravelBooking tb_bus = <span style='font-weight:bold;color:#7B0052;'>new</span> TravelBooking(<span style='font-weight:bold;color:#7B0052;'>new</span> BusTravelCreator());
+TravelBooking tb_train = <span style='font-weight:bold;color:#7B0052;'>new</span> TravelBooking(<span style='font-weight:bold;color:#7B0052;'>new</span> TrainTravelCreator());
+TravelBooking tb_flight = <span style='font-weight:bold;color:#7B0052;'>new</span> TravelBooking(<span style='font-weight:bold;color:#7B0052;'>new</span> FlightTravelCreator());</pre>
+          </div>
+      
+    <br>
+    <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.
+    <br> - Michael Collins, flew on Gemini 10 and Apollo 11</span>
+
+
+
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <p {padding-left: 80px;}
+    <div id="disqus_thread"></div>
+    <script>
+
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://testingfly-com.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+    <script id="dsq-count-scr" src="//testingfly-com.disqus.com/count.js" async></script>
+  </p>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <ul class="list-inline text-center">
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="#">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a href="sitemap.html">
+                  <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <p class="copyright text-muted">Copyright &copy; testingfly.com 2017</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+    <script type="text/javascript" src="./js/vendor-78aff70ee05fbca6ac66ad56fe36d0a13f5803a1427eb3b55e583efcfd1cd96b.js"></script>
+    <script type="text/javascript" src="./js/app-9f4b3478e5c4f7ac011387b1816ed6352b0110398a44b7d8a241f2dc95d18bce.js" async=""></script>
+
+
+
+
+  </body>
+
+</html>
