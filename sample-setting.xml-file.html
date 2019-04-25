@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SOAPUI Maven Framework</title>
+    <title>Sample Settings.xml file using Maven Central</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -69,16 +69,90 @@
 
     <!-- Main Content -->
     <div class="container">
-      <h2 align=left>SOAPUI and Maven Integration for Test Automation</h2>
+      <h2 align=left>Sample Settings.xml file using Maven Central</h2>
 	  <div class="row">
         <div class="container" align=justify>
-          <p>Integrating Maven Build System to your existing SOAPUI framework is pretty straightforward with little effort required. However, the benefits are huge especially if it is also coupled with Jenkins for Continuous Test Support. This tutorial focuses only on the Maven integration aspect with a separate one to address the Jenkins Integration.  </p>
+          <p>The settings element in the settings.xml file contains elements used to define values which configure Maven execution in various ways, like the pom.xml, but should not be bundled to any specific project, or distributed to an audience. These include values such as the local repository location, alternate remote repository servers, and authentication information.
 
-		  <p>The integration of the Maven build process coupled with a CI framework like Jenkins opens up the door for automatic deployments to support an agile software development process that delivers frequent release versions with continuous test support.</p>
+<p>There are two locations where a settings.xml file may live:
 
-          <p>Given below are the breakdown of the requirements for a successful integration -</p>
-		  <li>SOAPUI Maven Plugin</li>
-		  <li>Apache SureFire Plugin</li>
+<li>The Maven install: ${maven.home}/conf/settings.xml</li>
+<li>A user’s install: ${user.home}/.m2/settings.xml</li>
+            </p>
+            
+            <p>Given below is a sample Settings.xml file using Maven Central - </p>
+
+            <textarea rows="60%"; cols="100%"; class="code" disabled left>
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
+   <servers>
+      <server>
+         <username>username</username>
+         <password>password</password>
+         <id>central</id>
+      </server>
+      <server>
+         <username>username</username>
+         <password>password</password>
+         <id>snapshots</id>
+      </server>
+   </servers>
+   <profiles>
+      <profile>
+         <repositories>
+            <repository>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+               <id>central</id>
+               <name>libs-release</name>
+               <url>http://repo1.maven.org/maven2/</url>
+            </repository>
+            <repository>
+               <snapshots />
+               <id>snapshots</id>
+               <name>libs-snapshot</name>
+               <url>http://repo1.maven.org/maven2/</url>
+            </repository>
+         </repositories>
+         <pluginRepositories>
+            <pluginRepository>
+               <snapshots>
+                  <enabled>false</enabled>
+               </snapshots>
+               <id>central</id>
+               <name>plugins-release</name>
+               <url>http://repo1.maven.org/maven2/</url>
+            </pluginRepository>
+            <pluginRepository>
+               <snapshots />
+               <id>snapshots</id>
+               <name>plugins-snapshot</name>
+               <url>http://repo1.maven.org/maven2/</url>
+            </pluginRepository>
+         </pluginRepositories>
+         <id>artifactory</id>
+      </profile>
+   </profiles>
+   <activeProfiles>
+      <activeProfile>artifactory</activeProfile>
+   </activeProfiles>
+   <proxies>
+      <proxy>
+         <id>My Proxy</id>
+         <active>true</active>
+         <protocol>http</protocol>
+         <host>proxy.company.com</host>
+         <port>8080</port>
+         <username>dummy</username>
+         <password>password</password>
+         <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+      </proxy>
+   </proxies>
+</settings>
+
+            </textarea>
+    </p>
 
       <span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.
       <br> - Michael Collins, flew on Gemini 10 and Apollo 11</span>
